@@ -1,5 +1,6 @@
 package edu.illinois.cs.testrunner.execution;
 
+import edu.illinois.cs.testrunner.agent.Helper;
 import org.junit.runner.Description;
 import org.junit.runner.notification.Failure;
 import org.junit.runner.notification.RunListener;
@@ -35,7 +36,9 @@ public class TestListener extends RunListener {
 
     @Override
     public void testStarted(Description description) throws Exception {
+        System.out.println("Test started: " + description.getClassName() + "." + description.getMethodName());
         times.put(JUnitTestRunner.fullName(description), System.nanoTime());
+        
     }
 
     @Override
@@ -50,6 +53,7 @@ public class TestListener extends RunListener {
 
     @Override
     public void testFinished(Description description) throws Exception {
+        System.out.println("Test finished: " + description);
         final String fullTestName = JUnitTestRunner.fullName(description);
 
         if (times.containsKey(fullTestName)) {
@@ -58,5 +62,8 @@ public class TestListener extends RunListener {
         } else {
             System.out.println("Test finished but did not start: " + fullTestName);
         }
+        Helper helper = new Helper();
+        helper.print(description.getClassName() + "." + description.getMethodName());
+        helper.clear();
     }
 }
