@@ -99,7 +99,8 @@ public class TestListener extends RunListener {
 
     @Override
     public void testStarted(Description description) throws Exception {
-        writeTo("ASM-LOGS", "Test started: " + description.getClassName() + "." + description.getMethodName() + "\n");
+        String curDir = new File("").getAbsolutePath();
+        writeTo(curDir + "ASM-LOGS", "Test started: " + description.getClassName() + "." + description.getMethodName() + "\n");
         System.out.println("Test started: " + description.getClassName() + "." + description.getMethodName());
         times.put(JUnitTestRunner.fullName(description), System.nanoTime());
         
