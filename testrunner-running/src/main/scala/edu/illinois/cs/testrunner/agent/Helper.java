@@ -116,7 +116,7 @@ public class Helper {
     public void print(String testName) {
         String curDir = new File("").getAbsolutePath();
         for (String fieldItem : tmp.keySet()) {
-            writeTo(curDir + "ASM-LOGS", "PAIR: " + testName + "," + fieldItem + "\n");
+            writeTo(curDir + "/ASM-LOGS", "PAIR: " + testName + "," + fieldItem + "\n");
             System.out.println("PAIR: " + testName + "," + fieldItem);
         }
     }
