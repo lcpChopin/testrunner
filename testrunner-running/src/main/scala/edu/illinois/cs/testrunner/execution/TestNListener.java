@@ -32,7 +32,7 @@ public class TestNListener implements IResultListener2 {
         String curDir = new File("").getAbsolutePath();
         writeTo(curDir + "/ASM-LOGS", "Test succeed: " + result.getTestClass().getName() + "." + result.getMethod().getMethodName() + "\n");
         Helper helper = new Helper();
-        helper.print(result.getTestClass().getName() + "." + result.getTestName());
+        helper.print(result.getTestClass().getName() + "." + result.getMethod().getMethodName()testrunner-running/src/main/scala/edu/illinois/cs/testrunner/execution/TestNListener.java);
         helper.clear();
     }
 
@@ -41,7 +41,7 @@ public class TestNListener implements IResultListener2 {
         String curDir = new File("").getAbsolutePath();
         writeTo(curDir + "/ASM-LOGS", "Test failed: " + result.getTestClass().getName() + "." + result.getMethod().getMethodName() + "\n");
         Helper helper = new Helper();
-        helper.print(result.getTestClass().getName() + "." + result.getTestName());
+        helper.print(result.getTestClass().getName() + "." + result.getMethod().getMethodName());
         helper.clear();
     }
 
