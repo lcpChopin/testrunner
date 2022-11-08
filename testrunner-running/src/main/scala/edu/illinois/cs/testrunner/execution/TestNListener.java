@@ -22,7 +22,7 @@ public class TestNListener implements IResultListener2 {
     @Override
     public void onTestStart(ITestResult result) {
         String curDir = new File("").getAbsolutePath();
-        writeTo(curDir + "/ASM-LOGS", "Test started: " + result.getTestClass().getName() + "." + result.getTestName() + "\n");
+        writeTo(curDir + "/ASM-LOGS", "Test started: " + result.getTestClass().getName() + "." + result.getMethod().getMethodName() + "\n");
 
 
     }
@@ -30,7 +30,7 @@ public class TestNListener implements IResultListener2 {
     @Override
     public void onTestSuccess(ITestResult result) {
         String curDir = new File("").getAbsolutePath();
-        writeTo(curDir + "/ASM-LOGS", "Test succeed: " + result.getTestClass().getName() + "." + result.getTestName() + "\n");
+        writeTo(curDir + "/ASM-LOGS", "Test succeed: " + result.getTestClass().getName() + "." + result.getMethod().getMethodName() + "\n");
         Helper helper = new Helper();
         helper.print(result.getTestClass().getName() + "." + result.getTestName());
         helper.clear();
@@ -39,7 +39,7 @@ public class TestNListener implements IResultListener2 {
     @Override
     public void onTestFailure(ITestResult result) {
         String curDir = new File("").getAbsolutePath();
-        writeTo(curDir + "/ASM-LOGS", "Test failed: " + result.getTestClass().getName() + "." + result.getTestName() + "\n");
+        writeTo(curDir + "/ASM-LOGS", "Test failed: " + result.getTestClass().getName() + "." + result.getMethod().getMethodName() + "\n");
         Helper helper = new Helper();
         helper.print(result.getTestClass().getName() + "." + result.getTestName());
         helper.clear();
@@ -48,9 +48,9 @@ public class TestNListener implements IResultListener2 {
     @Override
     public void onTestSkipped(ITestResult result) {
         String curDir = new File("").getAbsolutePath();
-        writeTo(curDir + "/ASM-LOGS", "Test skipped: " + result.getTestClass().getName() + "." + result.getTestName() + "\n");
+        writeTo(curDir + "/ASM-LOGS", "Test skipped: " + result.getTestClass().getName() + "." + result.getMethod().getMethodName() + "\n");
         Helper helper = new Helper();
-        helper.print(result.getTestClass().getName() + "." + result.getTestName());
+        helper.print(result.getTestClass().getName() + "." + result.getMethod().getMethodName());
         helper.clear();
     }
 
